@@ -29,7 +29,7 @@ class PhoneValidator : Validator<String>() {
 
 class FirstNameValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
-        return if (value != null) {
+        return if (!value.isNullOrEmpty()) {
             val list = ArrayList<ErrorCode>()
             if (value.length > 16) {
                 list.add(ErrorCode.FIRST_NAME_INVALID_LENGTH)
@@ -46,7 +46,7 @@ class FirstNameValidator : Validator<String>() {
 
 class LastNameValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
-        return if (value != null) {
+        return if (!value.isNullOrEmpty()) {
             val list = ArrayList<ErrorCode>()
             if (value.length > 16) {
                 list.add(ErrorCode.LAST_NAME_INVALID_LENGTH)
@@ -63,7 +63,7 @@ class LastNameValidator : Validator<String>() {
 
 class EmailValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
-        return if (value != null) {
+        return if (!value.isNullOrEmpty()) {
             val list = ArrayList<ErrorCode>()
             if (value.length > 32) {
                 list.add(ErrorCode.EMAIL_INVALID_LENGTH)
