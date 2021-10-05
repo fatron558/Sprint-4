@@ -9,16 +9,18 @@ class StudentsGroup {
     init {
         var listStudents = ArrayList<Student>()
         for (i in 0..5) {
-            listStudents.add(Student("firstName$i", "lastName$i",
-                "middleName$i", i, i.toDouble() * 2,
-                "city$i", "specialization$i", "prevEducation$i"))
+            listStudents.add(Student(
+                firstName = "firstName$i",
+                lastName = "lastName$i",
+                averageRate = i.toDouble() * 2
+            ))
         }
         students = listStudents
     }
 }
 
 fun main() {
-    val group = StudentsGroup().filterByPredicate { it.age >= 3 }
+    val group = StudentsGroup().filterByPredicate { it.averageRate >= 5 }
     for (student in group)
-        println("${student.firstName} ${student.lastName} ${student.middleName} ${student.age}")
+        println("${student.firstName} ${student.lastName} ${student.middleName} ${student.averageRate}")
 }
